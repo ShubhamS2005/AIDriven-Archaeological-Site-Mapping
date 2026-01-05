@@ -1,0 +1,12 @@
+names:
+- vegetation
+nc: 1
+roboflow:
+  license: Public Domain
+  project: vegetation-segmentation
+  url: https://universe.roboflow.com/blue-halo/vegetation-segmentation/dataset/4
+  version: 4
+  workspace: blue-halo
+test: ../test/images
+train: ../train/images
+val: ../valid/images
