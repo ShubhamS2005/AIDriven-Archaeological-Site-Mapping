@@ -1,191 +1,286 @@
 # 🏛️ AI-Driven Archaeological Site Mapping
 
-An AI-powered system designed to assist archaeologists and researchers in identifying, analyzing, and mapping potential archaeological sites using machine learning and geospatial data analysis.
-
-This project leverages artificial intelligence techniques to process spatial data, detect patterns, and generate insights that can support archaeological exploration and heritage preservation.
-
----
-
-## 📌 Project Overview
-
-Traditional archaeological surveys require extensive manual fieldwork, satellite image interpretation, and historical analysis. This project aims to enhance that process by applying **machine learning and spatial analysis techniques** to automatically identify areas with a high probability of containing archaeological remains.
-
-The system processes spatial datasets and satellite imagery to generate predictive maps and visualizations that highlight potential archaeological zones.
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Deep Learning](https://img.shields.io/badge/DeepLearning-YOLO%20%7C%20CV-brightgreen)
+![Framework](https://img.shields.io/badge/Framework-PyTorch-red)
+![Notebook](https://img.shields.io/badge/Environment-Jupyter-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Repo Size](https://img.shields.io/github/repo-size/ShubhamS2005/AIDriven-Archaeological-Site-Mapping)
+![Stars](https://img.shields.io/github/stars/ShubhamS2005/AIDriven-Archaeological-Site-Mapping?style=social)
 
 ---
 
-## 🚀 Key Features
+# 📖 Overview
 
-* 🔍 **AI-Based Site Prediction**
-  Uses machine learning models to identify potential archaeological sites.
+**AI-Driven Archaeological Site Mapping** is a research-oriented computer vision project that explores how **deep learning and environmental analysis** can assist in identifying potential archaeological sites.
 
-* 🛰️ **Geospatial Data Processing**
-  Works with spatial datasets and remote sensing data.
+The system analyzes **vegetation patterns and soil characteristics** from images using AI models to detect anomalies that may indicate **buried structures, ancient settlements, or historical land disturbances**.
 
-* 📊 **Predictive Mapping**
-  Generates probability maps showing likely archaeological locations.
+The project integrates:
 
-* 📈 **Data Visualization**
-  Visualizes detected areas and patterns for easier interpretation.
-
-* 🧠 **Research-Oriented Framework**
-  Designed for experimentation with different models and datasets.
+- 🌱 Vegetation Segmentation
+- 🪨 Soil Pattern Detection
+- 📊 Visual Model Analysis
+- 🧠 Explainable AI using Grad-CAM
 
 ---
 
-## 🧱 Project Structure
+# 🎯 Motivation
+
+Archaeologists often rely on environmental signals such as:
+
+- Abnormal vegetation growth
+- Soil discoloration
+- Surface texture changes
+- Disturbed land patterns
+
+These indicators can reveal hidden structures underground.
+
+This project investigates how **AI models can automatically detect these signals**, helping archaeologists narrow down potential excavation locations.
+
+---
+
+# 🧠 Model Architecture
+
+The deep learning system is built around a **YOLO-based object detection and segmentation pipeline**.
 
 ```
-AIDriven-Archaeological-Site-Mapping/
-│
-├── data/                # Dataset or spatial data files
-├── models/              # Trained models or model scripts
-├── notebooks/           # Jupyter notebooks for experiments
-├── src/                 # Core source code
-│   ├── preprocessing.py
-│   ├── training.py
-│   ├── prediction.py
-│   └── visualization.py
-│
-├── outputs/             # Generated maps, predictions, and results
-├── requirements.txt     # Python dependencies
-└── README.md            # Project documentation
+Input Image
+     │
+     ▼
+Image Preprocessing
+(resizing, normalization)
+     │
+     ▼
+Deep Learning Model
+(YOLO Segmentation / Detection)
+     │
+     ▼
+Feature Extraction
+     │
+     ▼
+Prediction Layer
+     │
+     ▼
+Output
+ ├── Vegetation Segmentation
+ ├── Soil Classification
+ └── Bounding Box Detection
 ```
 
 ---
 
-## ⚙️ Technologies Used
+# ⚙️ Project Pipeline
 
-* **Python**
-* **Machine Learning**
-* **NumPy**
-* **Pandas**
-* **Scikit-Learn**
-* **Matplotlib**
-* **Seaborn**
-* **Jupyter Notebook**
+The complete workflow of the system:
 
-Optional integrations may include:
-
-* GIS tools
-* Satellite imagery datasets
-* Remote sensing libraries
-
----
-
-## 📊 Workflow
-
-The system follows the following pipeline:
-
-### 1️⃣ Data Collection
-
-* Satellite imagery
-* Historical site data
-* Environmental and terrain datasets
-
-### 2️⃣ Data Preprocessing
-
-* Cleaning and formatting spatial data
-* Feature extraction from datasets
-
-### 3️⃣ Model Training
-
-* Train machine learning models on known archaeological sites
-
-### 4️⃣ Prediction
-
-* Apply the trained model to new geographic areas
-
-### 5️⃣ Visualization
-
-* Generate predictive maps highlighting potential sites
+```
+Satellite / Ground Images
+            │
+            ▼
+     Data Collection
+            │
+            ▼
+     Data Annotation
+            │
+            ▼
+      Model Training
+ (Vegetation + Soil Models)
+            │
+            ▼
+      Model Evaluation
+   (F1 Curves & Metrics)
+            │
+            ▼
+     Prediction & Testing
+            │
+            ▼
+ Visualization & Explainability
+   ├─ Bounding Box Detection
+   ├─ Grad-CAM Heatmaps
+   └─ Performance Curves
+            │
+            ▼
+ Archaeological Pattern Analysis
+```
 
 ---
 
-## 💻 Installation
+# 📂 Repository Structure
 
-Clone the repository:
+```
+AIDriven-Archaeological-Site-Mapping
+│
+├── ArchilogicalMapping/
+│
+├── SoilDetection/
+│   ├── SoilDetection.ipynb
+│   ├── SOIL.md
+│   ├── bbox_visualization.png
+│   ├── distribution.png
+│   ├── gad_cam.png
+│   ├── class_labels.json
+│   └── test_soil.jpg
+│
+├── UI-Demo/
+│
+├── VegetationSegmentation.ipynb
+├── VEGETATION.md
+├── best.pt
+├── data.yaml
+├── results.csv
+├── veg_test.jpg
+│
+├── BoxF1_curve.png
+├── MaskF1_curve.png
+│
+├── AgroSensi-AI-2.pptx
+└── README.md
+```
+
+---
+
+# 🌱 Vegetation Segmentation
+
+Vegetation anomalies can indicate underground structures.
+
+This module trains a deep learning segmentation model to identify vegetation patterns.
+
+### Files
+
+```
+VegetationSegmentation.ipynb
+VEGETATION.md
+best.pt
+data.yaml
+```
+
+### Outputs
+
+- Vegetation masks
+- Bounding box F1 score curve
+- Mask segmentation accuracy
+
+Example evaluation plots:
+
+```
+BoxF1_curve.png
+MaskF1_curve.png
+```
+
+---
+
+# 🪨 Soil Detection
+
+Soil composition differences often reveal hidden archaeological features.
+
+The soil detection module performs:
+
+- Soil classification
+- Bounding box detection
+- Model explainability
+
+### Files
+
+```
+SoilDetection.ipynb
+SOIL.md
+class_labels.json
+```
+
+### Visual Outputs
+
+- Dataset distribution plot
+- Bounding box visualization
+- Grad-CAM interpretability heatmap
+
+```
+distribution.png
+bbox_visualization.png
+gad_cam.png
+```
+
+Grad-CAM highlights which image regions influenced model predictions.
+
+---
+
+# 💻 UI Demonstration
+
+The `UI-Demo` directory shows how the AI models could be integrated into a visual interface for archaeologists or researchers.
+
+This allows easier interaction with prediction outputs and visualizations.
+
+---
+
+# 📊 Results
+
+The trained models produce:
+
+- Vegetation segmentation maps
+- Soil classification predictions
+- Bounding box detections
+- Performance metrics
+- Grad-CAM explanation maps
+
+Results are saved in:
+
+```
+results.csv
+```
+
+---
+
+# 🚀 How to Run the Project
+
+### Clone Repository
 
 ```bash
 git clone https://github.com/ShubhamS2005/AIDriven-Archaeological-Site-Mapping.git
 ```
 
-Navigate to the project folder:
+### Move Into Directory
 
 ```bash
 cd AIDriven-Archaeological-Site-Mapping
 ```
 
-Install dependencies:
+### Run Notebooks
 
-```bash
-pip install -r requirements.txt
+Open and run:
+
 ```
+VegetationSegmentation.ipynb
+SoilDetection/SoilDetection.ipynb
+```
+
+Execute cells sequentially for training and predictions.
 
 ---
 
-## ▶️ Usage
+# 🔬 Applications
 
-Run the training pipeline:
+This system can support:
 
-```bash
-python src/training.py
-```
-
-Generate predictions:
-
-```bash
-python src/prediction.py
-```
-
-Visualize the results:
-
-```bash
-python src/visualization.py
-```
+- Archaeological site prediction
+- Environmental anomaly detection
+- Remote sensing analysis
+- Cultural heritage preservation
+- AI-assisted archaeological surveys
 
 ---
 
-## 📊 Example Output
+# 🔮 Future Improvements
 
-The system generates outputs such as:
+Potential future extensions:
 
-* Predictive probability maps
-* Heatmaps showing potential archaeological zones
-* Model performance metrics
-
-Example output structure:
-
-```
-outputs/
-├── prediction_map.png
-├── heatmap.png
-└── model_results.csv
-```
+- Satellite imagery integration
+- Multi-spectral remote sensing analysis
+- GIS mapping integration
+- Web dashboard for visualization
+- Real-time site prediction system
 
 ---
 
-## 🔬 Research Applications
-
-This project can be used for:
-
-* Archaeological site discovery
-* Cultural heritage preservation
-* Historical landscape analysis
-* Remote sensing research
-* AI-assisted archaeology
-
----
-
-## 📌 Future Improvements
-
-* Integration with **deep learning models**
-* Use of **satellite imagery datasets**
-* Development of a **web-based visualization dashboard**
-* Integration with **GIS tools**
-* Real-time remote sensing analysis
-
----
 
 ## Demo Link
 https://archilogicalmappingui-ghgvrpkd29qhwrgmcerkyo.streamlit.app/
@@ -193,18 +288,6 @@ https://archilogicalmappingui-ghgvrpkd29qhwrgmcerkyo.streamlit.app/
 ## Demo use 
 Admin, pass 1234
 
-## 🤝 Contributing
-
-Contributions are welcome!
-
-Steps to contribute:
-
-1. Fork the repository
-2. Create a new branch
-3. Commit your changes
-4. Submit a Pull Request
-
----
 
 ## 📜 License
 
@@ -216,12 +299,10 @@ This project is open-source and available under the **MIT License**.
 
 Made with ❤️ by Shubham Srivastava (shubhamsrivastava12568@gmail.com)
 
+⭐ If you find this project useful, consider giving it a star on GitHub!
 
 ---
 
-## ⭐ Support
-
-If you like this project, please consider giving it a **star ⭐ on GitHub** to support the work.
 
 
 
